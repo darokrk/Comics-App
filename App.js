@@ -7,9 +7,7 @@ import MainTitle from "./Components/MainTitle";
 export default function App() {
   return (
     <View style={styles.container}>
-      <View>
-        <MainTitle text="XKCD" />
-      </View>
+      <MainTitle text="XKCD" />
     </View>
   );
 }

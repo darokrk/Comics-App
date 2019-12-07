@@ -6,7 +6,7 @@ class ComicsItem extends PureComponent {
   render() {
     const { navigation } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         <Image
           source={{
             uri: `${navigation.getParam("img")}`
@@ -14,17 +14,26 @@ class ComicsItem extends PureComponent {
           style={styles.comicsImage}
         />
         <Text style={styles.comicsName}>
-          {navigation.getParam("title", "Comics Item Name")}
+          {`${navigation.getParam(
+            "title",
+            "Comics Item Name"
+          )} - ${navigation.getParam("year", "Comics Item Name")}`}
         </Text>
+        <Text style={styles.comicsName}></Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   comicsImage: {
-    width: "100%",
-    height: "80%"
+    width: 300,
+    height: 300
   },
   comicsName: {
     fontSize: 25,

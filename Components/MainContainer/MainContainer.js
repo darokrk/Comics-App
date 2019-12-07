@@ -21,12 +21,4 @@ const RootStack = createStackNavigator(
 
 const MainContainer = createAppContainer(RootStack);
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    padding: 0,
-    marginTop: Constants.statusBarHeight
-  }
-});
-
 export default MainContainer;

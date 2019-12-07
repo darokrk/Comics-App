@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  ActivityIndicator,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet
-} from "react-native";
+import { ActivityIndicator, View, StyleSheet } from "react-native";
 
 class ActivityIndicatorExample extends Component {
   state = { animating: true };

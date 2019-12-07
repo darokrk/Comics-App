@@ -1,16 +1,22 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View, Image } from "react-native";
 
+import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
+
 const ComicsCard = ({ item, navigation }) => {
-  const { title, img } = item;
+  const { title, img, year } = item;
   return (
     <TouchableOpacity
       style={{ backgroundColor: "transparent" }}
-      onPress={() => navigation.navigate("ComicsItem", { title, img })}
+      onPress={() => navigation.navigate("ComicsItem", { title, img, year })}
     >
       <View style={styles.listItemContainer}>
         <Text style={styles.comicsItemHeader}>{title}</Text>
-        <Image source={{ uri: img }} style={styles.comicsImage} />
+        {img ? (
+          <Image source={{ uri: img }} style={styles.comicsImage} />
+        ) : (
+          <ActivityIndicator></ActivityIndicator>
+        )}
       </View>
     </TouchableOpacity>
   );

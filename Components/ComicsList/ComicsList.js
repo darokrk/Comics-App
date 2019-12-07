@@ -9,9 +9,7 @@ import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
 class ComicsList extends PureComponent {
   state = {
     comicsList: [],
-    loading: true,
-    number: 7,
-    mounted: false
+    loading: true
   };
 
   static navigationOptions = {

@@ -28,10 +28,10 @@ class ComicsList extends PureComponent {
       .then(responses => Promise.all(responses.map(r => r.json())))
       .then(comicsData =>
         comicsData.forEach(item => {
-          this.setState({
-            comicsList: [...this.state.comicsList, item],
+          this.setState(prevState => ({
+            comicsList: [...prevState.comicsList, item],
             loading: false
-          });
+          }));
         })
       );
   }

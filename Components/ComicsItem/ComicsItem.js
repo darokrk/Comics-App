@@ -9,12 +9,12 @@ class ComicsItem extends PureComponent {
       <View>
         <Image
           source={{
-            uri: ""
+            uri: `${navigation.getParam("img")}`
           }}
           style={styles.comicsImage}
         />
         <Text style={styles.comicsName}>
-          {navigation.getParam("name", "Name of Pokemon")}
+          {navigation.getParam("title", "Comics Item Name")}
         </Text>
       </View>
     );
@@ -23,11 +23,13 @@ class ComicsItem extends PureComponent {
 
 const styles = StyleSheet.create({
   comicsImage: {
-    height: 250,
-    width: 250
+    width: "100%",
+    height: "80%"
   },
   comicsName: {
-    fontSize: 25
+    fontSize: 25,
+    textAlign: "center",
+    marginTop: 30
   }
 });
 

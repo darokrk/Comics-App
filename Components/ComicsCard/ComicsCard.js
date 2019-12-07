@@ -1,12 +1,16 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View, Image } from "react-native";
 
-const ComicsCard = ({ item }) => {
+const ComicsCard = ({ item, navigation }) => {
+  const { title, img } = item;
   return (
-    <TouchableOpacity style={{ backgroundColor: "transparent" }}>
+    <TouchableOpacity
+      style={{ backgroundColor: "transparent" }}
+      onPress={() => navigation.navigate("ComicsItem", { title, img })}
+    >
       <View style={styles.listItemContainer}>
-        <Text style={styles.comicsItemHeader}>{item.title}</Text>
-        <Image source={{ uri: item.img }} style={styles.comicsImage} />
+        <Text style={styles.comicsItemHeader}>{title}</Text>
+        <Image source={{ uri: img }} style={styles.comicsImage} />
       </View>
     </TouchableOpacity>
   );

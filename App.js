@@ -1,16 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
+import {
+  createStackNavigator,
+  createAppContainer
+} from "react-navigation-stack";
+
 import Constants from "expo-constants";
 
-import MainTitle from "./Components/MainTitle/MainTitle";
-import ComicsList from "./Components/ComicsList/ComicsList";
+import MainContainer from "./Components/MainContainer/MainContainer";
+
+// const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <ScrollView style={styles.container}>
-      <MainTitle text="XKCD" />
-      <ComicsList />
-    </ScrollView>
+    // <ScrollView style={styles.container}>
+    <MainContainer />
+    // </ScrollView>
+    // <NavigationNativeContainer style={styles.container}>
+    //   <Stack.Navigator>
+    //     <Stack.Screen name="Home" component={Home} />
+    //     <Stack.Screen name="ComicsList" component={ComicsList} />
+    //     <Stack.Screen name="ComicsItem" component={ComicsItem} />
+    //   </Stack.Navigator>
+    // </NavigationNativeContainer>
   );
 };
 
@@ -19,9 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 0,
     marginTop: Constants.statusBarHeight
-  },
-  red: {
-    color: "#888"
   }
 });
 

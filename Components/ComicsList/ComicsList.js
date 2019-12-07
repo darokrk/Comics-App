@@ -19,46 +19,23 @@ class ComicsList extends PureComponent {
   };
 
   async componentDidMount() {
-    if (this.state.mounted) return;
-    try {
-      const comicsApiCall = await fetch("https://xkcd.com/37/info.0.json");
-      const comics = await comicsApiCall.json();
-      this.setState({
-        comicsList: [...this.state.comicsList, comics],
-        loading: false,
-        number: ++this.state.number,
-        mounted: true
-      });
-    } catch (err) {
-      console.log("First Error fetching data-----------", err);
-    }
-  }
+    const urlsID = [37, 36, 35, 34, 33, 32, 31];
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.number);
-    async function getData() {
-      try {
-        const comicsApiCall = await fetch(
-          `https://xkcd.com/${this.state.number}/info.0.json`
-        );
-        const comics = await comicsApiCall.json();
-        await this.setState({
-          comicsList: [...this.state.comicsList, comics],
-          loading: false,
-          number: ++this.state.number
-        });
-        console.log(this.state.comicsList);
-      } catch (err) {
-        console.log("Error fetching data-----------", err);
-      }
-    }
-    if (this.state.number >= 7) {
-      console.log("stop");
-      return;
-    } else {
-      console.log("dziala");
-      getData();
-    }
+    let requests = urlsID.map(number =>
+      fetch(`https://xkcd.com/${number}/info.0.json`)
+    );
+
+    Promise.all(requests)
+      .then(responses => responses)
+      .then(responses => Promise.all(responses.map(r => r.json())))
+      .then(comicsData =>
+        comicsData.forEach(item => {
+          this.setState({
+            comicsList: [...this.state.comicsList, item],
+            loading: false
+          });
+        })
+      );
   }
 
   render() {

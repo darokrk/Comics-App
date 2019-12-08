@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import { FlatList, ScrollView, RefreshControl } from "react-native";
+import { FlatList, ScrollView, RefreshControl, StyleSheet } from "react-native";
 
 import ComicsCard from "../ComicsCard/ComicsCard";
 import MainTitle from "../MainTitle/MainTitle";
@@ -85,8 +85,9 @@ class ComicsList extends PureComponent {
               onRefresh={this.onRefresh}
             />
           }
+          style={styles.container}
         >
-          <MainTitle text="XKCD" />
+          <MainTitle text="XKCD" navigation={navigation} />
           <FlatList
             data={comicsList}
             renderItem={data => (
@@ -101,5 +102,11 @@ class ComicsList extends PureComponent {
     }
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#2b2e4a"
+  }
+});
 
 export default ComicsList;

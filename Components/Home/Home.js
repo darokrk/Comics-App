@@ -1,14 +1,5 @@
 import React, { PureComponent } from "react";
-import {
-  StyleSheet,
-  Platform,
-  View,
-  Text,
-  Button,
-  Image,
-  TouchableOpacity,
-  createStackNavigator
-} from "react-native";
+import { StyleSheet, Platform, View, Text, Button, Image } from "react-native";
 
 class Home extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -22,10 +13,6 @@ class Home extends PureComponent {
   });
   render() {
     return (
-      // <TouchableOpacity
-      //   style={{ backgroundColor: "transparent" }}
-      //   onPress={() => this.props.navigation.navigate("ComicsList")}
-      // >
       <View style={styles.homeDiv}>
         <Image
           source={{
@@ -36,7 +23,6 @@ class Home extends PureComponent {
         />
         <Text style={styles.header}>Welcome to Comics Api App</Text>
       </View>
-      // </TouchableOpacity>
     );
   }
 }
@@ -46,16 +32,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000"
+    backgroundColor: "#2b2e4a"
   },
   homePageImage: {
     width: "75%",
-    height: "50%"
+    height: "60%"
   },
   header: {
-    marginTop: 20,
+    marginTop: 30,
     fontSize: 30,
-    color: "#b83b5e",
+    color: "#e84545",
     textAlign: "center",
     ...Platform.select({
       ios: {

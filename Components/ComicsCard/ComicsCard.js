@@ -25,11 +25,12 @@ const ComicsCard = ({ item, navigation }) => {
 const styles = StyleSheet.create({
   listItemContainer: {
     borderStyle: "solid",
-    borderColor: "#000",
+    borderColor: "#fff",
     borderWidth: 1,
-    backgroundColor: "#f08a5d",
+    borderRadius: 5,
+    backgroundColor: "#e84545",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
     marginVertical: 20,
     marginHorizontal: 16,
@@ -37,12 +38,16 @@ const styles = StyleSheet.create({
   },
   comicsItemHeader: {
     color: "#fff",
-    fontSize: 26
+    fontSize: 22,
+    textAlign: "center",
+    flex: 1
   },
   comicsImage: {
     backgroundColor: "transparent",
     height: 120,
-    width: 120
+    width: 120,
+    borderColor: "#000",
+    borderWidth: 1
   }
 });
 

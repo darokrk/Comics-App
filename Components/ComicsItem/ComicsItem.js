@@ -29,16 +29,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#2b2e4a"
   },
   comicsImage: {
     width: 300,
-    height: 300
+    height: 300,
+    borderColor: "#000",
+    borderWidth: 1
   },
   comicsName: {
     fontSize: 25,
     textAlign: "center",
-    marginTop: 30
+    marginTop: 30,
+    color: "#fff"
   }
 });
 

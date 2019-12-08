@@ -33,9 +33,18 @@ class ComicsList extends PureComponent {
     });
   };
 
+  getRandomIDS = () => {
+    const urlsID = [];
+    for (i = 0; i < 8; i++) {
+      const ID = Math.floor(Math.random() * 100);
+      urlsID.push(ID);
+    }
+    return urlsID;
+  };
+
   async getData() {
     this._isMounted = true;
-    const urlsID = [37, 36, 35, 34, 33, 32, 31];
+    const urlsID = this.getRandomIDS();
 
     let requests = urlsID.map(number =>
       fetch(`https://xkcd.com/${number}/info.0.json`)
@@ -83,7 +92,7 @@ class ComicsList extends PureComponent {
             renderItem={data => (
               <ComicsCard {...data} navigation={navigation} />
             )}
-            keyExtractor={item => item.title}
+            keyExtractor={item => `${item.num}`}
           />
         </ScrollView>
       );

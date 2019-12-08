@@ -19,7 +19,18 @@ class ComicsList extends PureComponent {
   };
 
   onRefresh = () => {
-    this.setState({ refreshing: true, loading: false }, () => this.getData());
+    this.setState({ refreshing: true, comicsList: [] });
+
+    this.wait(2000).then(() => {
+      this.getData();
+      this.setState({ refreshing: false });
+    });
+  };
+
+  wait = timeout => {
+    return new Promise(resolve => {
+      setTimeout(resolve, timeout);
+    });
   };
 
   async getData() {
@@ -54,14 +65,14 @@ class ComicsList extends PureComponent {
   }
 
   render() {
-    const { comicsList, loading } = this.state;
+    const { comicsList, loading, refreshing } = this.state;
     const { navigation } = this.props;
     if (!loading) {
       return (
         <ScrollView
           refreshControl={
             <RefreshControl
-              refreshing={this.state.refreshing}
+              refreshing={refreshing}
               onRefresh={this.onRefresh}
             />
           }

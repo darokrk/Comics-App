@@ -4,16 +4,21 @@ import { ActivityIndicator, View, StyleSheet } from "react-native";
 class ActivityIndicatorExample extends Component {
   state = { animating: true };
 
-  closeActivityIndicator = () =>
-    setTimeout(
+  closeActivityIndicator = () => {
+    const oko = setTimeout(
       () =>
         this.setState({
           animating: false
         }),
-      60000
+      30000
     );
+    clearInterval(oko);
+  };
 
-  componentDidMount = () => this.closeActivityIndicator();
+  componentDidMount = () => {
+    this.closeActivityIndicator();
+  };
+
   render() {
     const animating = this.state.animating;
     return (

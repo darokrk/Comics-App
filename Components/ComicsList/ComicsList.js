@@ -92,7 +92,7 @@ class ComicsList extends PureComponent {
             renderItem={data => (
               <ComicsCard {...data} navigation={navigation} />
             )}
-            keyExtractor={item => `${item.num}`}
+            keyExtractor={item => item.safe_title}
           />
         </ScrollView>
       );

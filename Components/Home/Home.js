@@ -1,5 +1,14 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, Platform, View, Text, Button, Image } from "react-native";
+import {
+  StyleSheet,
+  Platform,
+  View,
+  Text,
+  Button,
+  Image,
+  TouchableOpacity,
+  createStackNavigator
+} from "react-native";
 
 class Home extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -13,6 +22,10 @@ class Home extends PureComponent {
   });
   render() {
     return (
+      // <TouchableOpacity
+      //   style={{ backgroundColor: "transparent" }}
+      //   onPress={() => this.props.navigation.navigate("ComicsList")}
+      // >
       <View style={styles.homeDiv}>
         <Image
           source={{
@@ -23,6 +36,7 @@ class Home extends PureComponent {
         />
         <Text style={styles.header}>Welcome to Comics Api App</Text>
       </View>
+      // </TouchableOpacity>
     );
   }
 }

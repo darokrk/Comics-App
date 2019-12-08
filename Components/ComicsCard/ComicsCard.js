@@ -12,7 +12,7 @@ const ComicsCard = ({ item, navigation }) => {
     >
       <View style={styles.listItemContainer}>
         <Text style={styles.comicsItemHeader}>{title}</Text>
-        {img ? (
+        {img !== undefined ? (
           <Image source={{ uri: img }} style={styles.comicsImage} />
         ) : (
           <ActivityIndicator></ActivityIndicator>

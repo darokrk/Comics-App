@@ -22,7 +22,7 @@ class ComicsList extends PureComponent {
     this.setState({ refreshing: true, comicsList: [] });
 
     this.wait(2000).then(() => {
-      this.getData();
+      this.getActualComics();
       this.setState({ refreshing: false });
     });
   };

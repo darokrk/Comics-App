@@ -33,18 +33,27 @@ class ComicsList extends PureComponent {
     });
   };
 
-  getRandomIDS = () => {
+  async getActualComics() {
+    try {
+      const resp = await fetch(`https://xkcd.com/info.0.json`);
+      const data = await resp.json();
+      const urlsID = this.getRandomIDS(data.num);
+      this.getData(urlsID);
+    } catch (err) {
+      return err + "dupa";
+    }
+  }
+
+  getRandomIDS = data => {
     const urlsID = [];
     for (i = 0; i < 8; i++) {
-      const ID = Math.floor(Math.random() * 100);
-      urlsID.push(ID);
+      urlsID.push(data--);
     }
     return urlsID;
   };
 
-  async getData() {
+  async getData(urlsID) {
     this._isMounted = true;
-    const urlsID = this.getRandomIDS();
 
     let requests = urlsID.map(number =>
       fetch(`https://xkcd.com/${number}/info.0.json`)
@@ -66,7 +75,7 @@ class ComicsList extends PureComponent {
   }
 
   componentDidMount() {
-    this.getData();
+    this.getActualComics();
   }
 
   componentWillUnmount() {

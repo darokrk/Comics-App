@@ -40,7 +40,7 @@ class ComicsList extends PureComponent {
       const urlsID = this.getUrlsID(data.num);
       this.getData(urlsID);
     } catch (err) {
-      return err + "dupa";
+      return err + " upss something went wrong :(";
     }
   }
 

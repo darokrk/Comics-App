@@ -37,14 +37,14 @@ class ComicsList extends PureComponent {
     try {
       const resp = await fetch(`https://xkcd.com/info.0.json`);
       const data = await resp.json();
-      const urlsID = this.getRandomIDS(data.num);
+      const urlsID = this.getUrlsID(data.num);
       this.getData(urlsID);
     } catch (err) {
       return err + "dupa";
     }
   }
 
-  getRandomIDS = data => {
+  getUrlsID = data => {
     const urlsID = [];
     for (i = 0; i < 8; i++) {
       urlsID.push(data--);
